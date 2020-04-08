@@ -18,14 +18,7 @@ total = requests.get('https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/pro
 mapa = requests.get('https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/PortalMapa', headers=headers)
 
 # Transformando tudo em json, para ficar mais fácil de manipular depois
-total = json.loads(total.content)['results']
+# total = json.loads(total.content)['results']
 mapa = json.loads(mapa.content)['results']
 
-# Tirando algumas colunas indesejadas
-ufs = pd.DataFrame(mapa)
-ufs = ufs.drop(['objectId', 'latitude', 'longitude', 'createdAt', 'percent'], axis=1)
-print("#"*100)
-print(" ")
-print(ufs)
-print(" ")
-print("#"*100)
+print(mapa)
